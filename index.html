@@ -152,7 +152,7 @@ html::-webkit-scrollbar-thumb{background:rgba(0,255,178,0.2);border-radius:2px;}
 .btn-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
 
 /* ── MODE TABS ── */
-.mode-tabs{display:flex;gap:0;margin-bottom:8px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;width:100%;max-width:380px;}
+.mode-tabs{display:flex;gap:0;margin-bottom:8px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;width:100%;max-width:506px;}
 .mode-tab{flex:1;padding:10px 0;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.3);transition:all .2s;}
 .mode-tab.active{background:rgba(45,255,207,0.12);color:#2dffcf;}
 
@@ -510,10 +510,9 @@ function showMainMenu(){
       <div class="ov-ctrl"><strong>COMBO</strong>Score boost</div>
       <div class="ov-ctrl"><strong>DROPS</strong>Power-ups</div>
       <div class="ov-ctrl"><strong>ZONES</strong>2x points</div>
-    </div>
-
+    </div> <br>
     <div class="sec-hdr">SELECT SHIP</div>
-    <div class="ship-select" id="ship-select">${shipHtml}</div>
+    <div class="ship-select" id="ship-select">${shipHtml}</div> <br>
 
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="classic">CLASSIC</button>
