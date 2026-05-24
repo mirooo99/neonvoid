@@ -114,7 +114,7 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 
 /* ship select on main menu */
 .ship-select{display:flex;gap:12px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;}
-.ship-opt{width:64px;height:64px;border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:all .2s;background:rgba(5,5,20,0.8);}
+.ship-opt{width:84px;height:84px;border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:all .2s;background:rgba(5,5,20,0.8);}
 .ship-opt:hover{transform:translateY(-2px);}
 .ship-opt.selected{border-color:rgba(45,255,207,0.7);background:rgba(45,255,207,0.08);}
 .ship-opt.locked-ship{border-color:rgba(255,255,255,0.06);opacity:0.5;cursor:default;}
@@ -122,7 +122,7 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .ship-opt-name{font-size:7px;letter-spacing:1px;color:rgba(255,255,255,0.4);}
 .ship-opt.selected .ship-opt-name{color:#2dffcf;}
 
-#overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,5,0.9);pointer-events:all;overflow-y:auto;padding:20px 0;}
+#overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,5,0.9);pointer-events:all;overflow-y:auto;padding:48px 20px;gap:0;}
 #overlay.hidden{display:none;}
 .ov-title{font-family:'Orbitron',monospace;font-size:clamp(30px,7vw,76px);font-weight:900;letter-spacing:6px;background:linear-gradient(135deg,#ff2d78 0%,#ff9f1c 50%,#2dffcf 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
 .ov-sub{color:rgba(255,255,255,0.2);font-size:11px;letter-spacing:6px;margin-bottom:20px;}
@@ -136,7 +136,7 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .ov-ctrl strong{display:block;color:rgba(255,255,255,0.55);font-size:12px;margin-bottom:3px;}
 .btn{padding:13px 44px;border:none;border-radius:4px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:3px;cursor:pointer;transition:transform .1s,box-shadow .2s;}
 .btn:hover{transform:scale(1.05);}
-.btn.primary{background:linear-gradient(90deg,#ff2d78,#ff9f1c);color:#000;box-shadow:0 0 28px rgba(255,45,120,0.4);}
+.btn.primary{background:linear-gradient(90deg,#ff2d78,#ff9f1c);color:#000;box-shadow:0 0 28px rgba(255,45,120,0.4);min-width:220px;font-size:14px;}
 .btn.primary:hover{box-shadow:0 0 50px rgba(255,45,120,0.7);}
 .btn.cyan{background:linear-gradient(90deg,#2dffcf,#60d9ff);color:#000;box-shadow:0 0 28px rgba(45,255,207,0.35);}
 .btn.purple{background:linear-gradient(90deg,#a78bfa,#ff6bff);color:#000;box-shadow:0 0 28px rgba(167,139,250,0.35);}
@@ -149,8 +149,7 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .mode-tab{padding:8px 58px;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.3);transition:all .2s;}
 .mode-tab.active{background:rgba(45,255,207,0.12);color:#2dffcf;}
 
-/* achievements panel */
-.ach-panel{margin-bottom:20px;max-width:460px;width:100%;}
+.ach-panel{margin-bottom:20px;max-width:460px;width:100%;border-top:1px solid rgba(45,255,207,0.12);padding-top:24px;margin-top:8px;}
 .ach-panel-title{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:10px;text-align:center;}
 .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;}
 .ach-item{background:rgba(5,5,20,0.7);border:1px solid rgba(255,255,255,0.06);border-radius:5px;padding:8px 10px;text-align:center;transition:all .3s;}
@@ -526,7 +525,7 @@ function showMainMenu(){
       <div class="ov-ctrl"><strong>DROPS</strong>Grab power-ups</div>
       <div class="ov-ctrl"><strong>ZONES</strong>2x points</div>
     </div>
-    <div style="font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:10px;">SELECT SHIP</div>
+    <div style="font-size:11px;letter-spacing:4px;color:rgba(255,255,255,0.18);margin-bottom:16px;margin-top:8px;border-bottom:1px solid rgba(255,255,255,0.07);padding-bottom:10px;">SELECT SHIP</div>
     <div class="ship-select" id="ship-select">${shipHtml}</div>
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="classic">CLASSIC</button>
@@ -540,9 +539,9 @@ function showMainMenu(){
     </div>
     <div style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.15);margin-bottom:6px;">HIGH SCORES</div>
     <div style="display:flex;gap:20px;margin-bottom:20px;flex-wrap:wrap;justify-content:center;">
-      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(45,255,207,0.4);">CLASSIC</div><div style="font-family:'Orbitron',monospace;font-size:14px;color:#2dffcf;">${save.highScore.toLocaleString()}</div></div>
-      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(167,139,250,0.4);">ENDLESS</div><div style="font-family:'Orbitron',monospace;font-size:14px;color:#a78bfa;">${save.endlessHigh.toLocaleString()}</div></div>
-      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(255,245,68,0.4);">LIFETIME KILLS</div><div style="font-family:'Orbitron',monospace;font-size:14px;color:#fff544;">${save.totalKillsAll.toLocaleString()}</div></div>
+      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(45,255,207,0.4);">CLASSIC</div><div style="font-family:'Orbitron',monospace;font-size:24px;color:#2dffcf;">${save.highScore.toLocaleString()}</div></div>
+      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(167,139,250,0.4);">ENDLESS</div><div style="font-family:'Orbitron',monospace;font-size:24px;color:#a78bfa;">${save.endlessHigh.toLocaleString()}</div></div>
+      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(255,245,68,0.4);">LIFETIME KILLS</div><div style="font-family:'Orbitron',monospace;font-size:24px;color:#fff544;">${save.totalKillsAll.toLocaleString()}</div></div>
     </div>
     <div class="ach-panel">
       <div class="ach-panel-title">ACHIEVEMENTS (${Object.keys(save.achievements).length}/${ACHIEVEMENTS.length})</div>
