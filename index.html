@@ -20,25 +20,21 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 #lives-val{color:#ff2d78;}
 #wave-val{color:#ff9f1c;text-align:center;}
 
-/* weapon HUD row */
 #weapon-row{position:absolute;top:82px;left:50%;transform:translateX(-50%);display:flex;gap:8px;align-items:center;pointer-events:none;}
 .wslot{background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:4px 10px;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.3);transition:all .3s;}
 .wslot.active{border-color:rgba(45,255,207,0.5);color:#2dffcf;}
 .wslot.locked{color:rgba(255,255,255,0.12);}
 
-/* kills & upgrade bar */
 #upgrade-bar-wrap{position:absolute;top:82px;left:20px;pointer-events:none;}
 #upgrade-lbl{font-size:9px;letter-spacing:2px;color:rgba(255,159,28,0.5);margin-bottom:4px;}
 #upgrade-track{width:140px;height:4px;background:rgba(255,159,28,0.15);border:1px solid rgba(255,159,28,0.2);border-radius:2px;overflow:hidden;}
 #upgrade-fill{height:100%;background:linear-gradient(90deg,#ff9f1c,#fff544);border-radius:2px;transition:width .2s;}
 
-/* shield bar */
 #shield-bar-wrap{position:absolute;top:82px;right:20px;pointer-events:none;text-align:right;}
 #shield-lbl{font-size:9px;letter-spacing:2px;color:rgba(96,217,255,0.5);margin-bottom:4px;}
 #shield-track{width:120px;height:4px;background:rgba(96,217,255,0.1);border:1px solid rgba(96,217,255,0.2);border-radius:2px;overflow:hidden;margin-left:auto;}
 #shield-fill{height:100%;background:linear-gradient(90deg,#60d9ff,#2dffcf);border-radius:2px;transition:width .3s;}
 
-/* combo */
 #combo-bar{position:absolute;top:110px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;transition:opacity .4s;}
 #combo-bar.hidden{opacity:0;}
 #combo-txt{font-family:'Orbitron',monospace;font-size:13px;font-weight:900;letter-spacing:4px;color:#ff9f1c;}
@@ -46,7 +42,6 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 #combo-fill{height:3px;background:#ff9f1c;border-radius:2px;}
 #streak-txt{font-family:'Orbitron',monospace;font-size:11px;font-weight:900;letter-spacing:3px;margin-top:3px;opacity:0;transition:opacity .3s;}
 
-/* boss bar */
 #boss-bar-wrap{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:min(560px,75vw);pointer-events:none;opacity:0;transition:opacity .4s;}
 #boss-bar-wrap.show{opacity:1;}
 #boss-lbl{font-size:9px;letter-spacing:3px;color:#ff2d78;text-align:center;margin-bottom:5px;}
@@ -54,17 +49,14 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 #boss-track{height:10px;background:rgba(255,45,120,0.12);border:1px solid rgba(255,45,120,0.25);border-radius:5px;overflow:hidden;}
 #boss-fill{height:100%;background:linear-gradient(90deg,#ff2d78,#ff9f1c);border-radius:5px;transition:width .1s,background .5s;}
 
-/* wave flash */
 #wave-flash{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity .5s;}
 #wave-flash-txt{font-family:'Orbitron',monospace;font-size:clamp(22px,5vw,52px);font-weight:900;letter-spacing:6px;color:#2dffcf;text-shadow:0 0 40px rgba(45,255,207,0.8);}
 #wave-flash-sub{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:8px;}
 
-/* powerup notification */
 #pu-notify{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;opacity:0;transition:opacity .4s;}
 #pu-notify-txt{font-family:'Orbitron',monospace;font-size:clamp(16px,3vw,24px);font-weight:900;letter-spacing:4px;}
 #pu-notify-sub{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:4px;}
 
-/* scorecard overlay */
 #scorecard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,5,0.85);pointer-events:all;opacity:0;transition:opacity .5s;pointer-events:none;}
 #scorecard.show{opacity:1;pointer-events:all;}
 .sc-box{background:rgba(5,5,25,0.95);border:1px solid rgba(45,255,207,0.25);border-radius:8px;padding:36px 48px;min-width:340px;text-align:center;}
@@ -75,7 +67,6 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .sc-bonus{color:#ff9f1c;}
 .sc-divider{height:1px;background:rgba(45,255,207,0.1);margin:16px 0;}
 
-/* difficulty choice */
 #diff-choice{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,5,0.88);pointer-events:none;opacity:0;transition:opacity .4s;}
 #diff-choice.show{opacity:1;pointer-events:all;}
 .diff-box{text-align:center;}
@@ -97,17 +88,14 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .diff-card-desc{font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.3);line-height:1.5;}
 .diff-card-reward{font-size:9px;letter-spacing:1px;color:#fff544;margin-top:6px;}
 
-/* score popup */
 .score-pop{position:absolute;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;pointer-events:none;animation:popUp 1s forwards;}
 @keyframes popUp{0%{opacity:1;transform:translateY(0) scale(1);}50%{opacity:1;transform:translateY(-24px) scale(1.1);}100%{opacity:0;transform:translateY(-52px) scale(0.9);}}
 
-/* last stand */
 #last-stand{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;}
 #last-stand.show{animation:lastStandFlash 0.4s ease;}
 @keyframes lastStandFlash{0%{opacity:0.8;background:rgba(255,45,120,0.3);}100%{opacity:0;background:transparent;}}
 #last-stand-txt{font-family:'Orbitron',monospace;font-size:clamp(28px,6vw,64px);font-weight:900;letter-spacing:6px;color:#ff2d78;text-shadow:0 0 60px rgba(255,45,120,1);}
 
-/* main overlay */
 #overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,5,0.9);pointer-events:all;}
 #overlay.hidden{display:none;}
 .ov-title{font-family:'Orbitron',monospace;font-size:clamp(30px,7vw,76px);font-weight:900;letter-spacing:6px;background:linear-gradient(135deg,#ff2d78 0%,#ff9f1c 50%,#2dffcf 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
@@ -134,7 +122,6 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .dpad-btn:active{background:rgba(45,255,207,0.25);}
 #dp-up{top:0;left:45px;}#dp-down{bottom:0;left:45px;}#dp-left{left:0;top:45px;}#dp-right{right:0;top:45px;}
 
-/* multiplier zones (drawn on canvas but notification here) */
 #zone-txt{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;color:#fff544;pointer-events:none;opacity:0;transition:opacity .3s;}
 #zone-txt.show{opacity:1;}
 </style>
@@ -273,7 +260,6 @@ window.addEventListener('resize', resize);
 const SC = { IDLE:0, PLAYING:1, DEAD:2, WIN:3, SCORECARD:4 };
 let state = SC.IDLE;
 
-// Game state
 let player, bullets, enemies, particles, score, lives, combo, comboTimer;
 let wave, waveTimer, bossActive, boss, enemyBullets, shootTimer;
 let powerups, multiplierZones, asteroids, laserWalls;
@@ -286,7 +272,6 @@ let inZone = false;
 let diffMod = { bulletSpeed: 1, enemyCount: 1, bossHp: 1, reward: '' };
 let waveKills = 0, waveStart = 0;
 
-// Weapons unlocked
 let weapons = { basic: true, rapid: false, laser: false, missile: false, orbit: false };
 let orbitShields = [];
 let laserActive = false, laserTimer = 0;
@@ -392,7 +377,6 @@ function spawnWave() {
       dead:false, spawnX:0, elite:isElite
     });
   }
-  // mini-boss chance mid-wave (not on boss waves)
   if (wave%3!==0 && wave>1 && Math.random()<0.35) {
     setTimeout(()=>{ if(state===SC.PLAYING && !bossActive) spawnMiniBoss(); }, 5000);
   }
@@ -569,7 +553,6 @@ function loop(ts){
   let rawDt=Math.min((ts-lastTime)/16.667,3);
   lastTime=ts;
   let dt=rawDt*bulletTimeScale;
-  // bullet time fade out
   if(bulletTimeTimer>0){ bulletTimeTimer-=rawDt; if(bulletTimeTimer<=0){ bulletTimeScale=1; } }
   update(dt,rawDt);
   draw();
@@ -579,20 +562,16 @@ function loop(ts){
 function update(dt,rawDt){
   let sc2=W/680;
 
-  // Screen shake
   if(shakeMag>0){ shakeX=(Math.random()-0.5)*shakeMag; shakeY=(Math.random()-0.5)*shakeMag; shakeMag*=0.85; if(shakeMag<0.5)shakeMag=0; }
   else{ shakeX=0; shakeY=0; }
 
-  // Last stand
   if(lastStandActive){ lastStandTimer-=rawDt; if(lastStandTimer<=0){ lastStandActive=false; state=SC.DEAD; showEnd(false); return; } }
 
-  // D-pad
   if(dpadDir.up){targetY=player.y-60;targetX=player.x;}
   if(dpadDir.down){targetY=player.y+60;targetX=player.x;}
   if(dpadDir.left){targetX=player.x-60;targetY=player.y;}
   if(dpadDir.right){targetX=player.x+60;targetY=player.y;}
 
-  // Player move
   if(targetX!==null){
     player.vx+=(targetX-player.x)*0.2*0.35-player.vx*0.35;
     player.vy+=(targetY-player.y)*0.2*0.35-player.vy*0.35;
@@ -603,12 +582,10 @@ function update(dt,rawDt){
   if(player.flash>0) player.flash-=dt;
   if(player.rapidTimer>0) player.rapidTimer-=rawDt;
 
-  // Trail
   player.trail.push({x:player.x,y:player.y,life:1});
   if(player.trail.length>16) player.trail.shift();
   for(let t of player.trail) t.life-=0.07;
 
-  // Zone check
   inZone=false;
   for(let z of multiplierZones){
     z.pulse+=0.04*dt;
@@ -616,7 +593,6 @@ function update(dt,rawDt){
   }
   if(inZone){ zoneTxt.classList.add('show'); } else{ zoneTxt.classList.remove('show'); }
 
-  // Orbit shields
   if(weapons.orbit && orbitShields.length>0){
     for(let o of orbitShields){
       o.angle+=0.04*dt;
@@ -625,14 +601,11 @@ function update(dt,rawDt){
     }
   }
 
-  // Laser
   if(laserActive){ laserTimer-=dt; if(laserTimer<=0){laserActive=false;} }
 
-  // Shoot
   shootTimer-=dt;
   if(shootTimer<=0) shoot();
 
-  // Missile homing
   for(let b of bullets){
     if(b.missile && b.target && !b.target.dead){
       let ang=Math.atan2(b.target.y-b.y, b.target.x-b.x);
@@ -642,18 +615,15 @@ function update(dt,rawDt){
     }
   }
 
-  // Combo
   if(comboTimer>0){
     comboTimer-=dt;
     comboFill.style.width=Math.max(0,(comboTimer/150)*100)+'%';
     if(comboTimer<=0){combo=1;comboBar.classList.add('hidden');}
   }
 
-  // Bullets move
   for(let b of bullets){b.x+=(b.vx||0)*dt;b.y+=b.vy*dt;}
   bullets=bullets.filter(b=>b.y>-30&&b.x>-30&&b.x<W+30&&b.y<H+30);
 
-  // Laser beam hits
   if(laserActive){
     let lx=player.x, ly=player.y-player.r;
     let testEnems=[...enemies,...(bossActive&&boss&&!boss.dead?[boss]:[])];
@@ -666,7 +636,6 @@ function update(dt,rawDt){
     }
   }
 
-  // Orbit bullet hits
   if(weapons.orbit){
     for(let o of orbitShields){
       if(!o.x) continue;
@@ -677,7 +646,6 @@ function update(dt,rawDt){
     enemyBullets=enemyBullets.filter(b=>b.life>0);
   }
 
-  // Enemies
   for(let e of enemies){
     if(e.dead) continue;
     e.t+=0.04*dt;
@@ -704,7 +672,6 @@ function update(dt,rawDt){
       }
     }
 
-    // bullet hits enemy
     for(let b of bullets){
       if(!b._dead&&dist(b,e)<e.r+b.r){
         if(!b.piercing) b._dead=true; shotsHit++;
@@ -714,7 +681,6 @@ function update(dt,rawDt){
     }
     bullets=bullets.filter(b=>!b._dead);
 
-    // player collision
     if(player.invincible<=0&&dist(player,e)<player.r+e.r*0.85){
       hitPlayer(); e.dead=true; spawnParticles(e.x,e.y,e.color,10,3);
     }
@@ -722,7 +688,6 @@ function update(dt,rawDt){
   }
   enemies=enemies.filter(e=>!e.dead);
 
-  // Asteroids (boss hazard)
   for(let a of asteroids){
     a.x+=a.vx*dt; a.y+=a.vy*dt; a.angle+=a.spin*dt; a.life-=0.003*dt;
     if(player.invincible<=0&&dist(player,a)<player.r+a.r*0.8){hitPlayer();a.life=0;}
@@ -731,7 +696,6 @@ function update(dt,rawDt){
   }
   asteroids=asteroids.filter(a=>a.life>0&&a.y<H+60&&a.x>-60&&a.x<W+60);
 
-  // Laser walls (boss hazard)
   for(let lw of laserWalls){
     lw.timer-=dt;
     if(lw.active&&player.invincible<=0){
@@ -740,16 +704,13 @@ function update(dt,rawDt){
   }
   laserWalls=laserWalls.filter(lw=>lw.timer>0);
 
-  // Enemy bullets
   for(let b of enemyBullets){b.x+=b.vx*bulletTimeScale*dt;b.y+=b.vy*bulletTimeScale*dt;}
   enemyBullets=enemyBullets.filter(b=>b.x>-20&&b.x<W+20&&b.y>-20&&b.y<H+20&&b.life>0);
 
-  // near-miss bullet time
   for(let b of enemyBullets){
     let d=dist(player,b);
     if(d<player.r*2.5&&bulletTimeScale===1&&player.invincible<=0){
       bulletTimeScale=0.35; bulletTimeTimer=18;
-      // flash
       let div=document.createElement('div');
       div.style.cssText='position:absolute;inset:0;background:rgba(45,255,207,0.08);pointer-events:none;z-index:5;animation:popUp 0.3s forwards;';
       document.getElementById('ui').appendChild(div);
@@ -761,7 +722,6 @@ function update(dt,rawDt){
   }
   enemyBullets=enemyBullets.filter(b=>b.life>0);
 
-  // Boss
   if(bossActive&&boss&&!boss.dead){
     boss.t+=0.015*dt;
     boss.x+=boss.vx*bulletTimeScale*dt;
@@ -776,7 +736,6 @@ function update(dt,rawDt){
     if(boss.shootCd<=0){
       boss.shootCd=boss.shootRate/Math.max(1,bulletTimeScale);
       let bsp=3.5*sc2;
-      // Phase fan
       let fc=5+boss.phase*2;
       let spr=Math.PI/2;
       for(let i=0;i<fc;i++){
@@ -786,7 +745,6 @@ function update(dt,rawDt){
       if(boss.phase>=1){
         let ang=Math.atan2(player.y-boss.y,player.x-boss.x);
         enemyBullets.push({x:boss.x,y:boss.y,vx:Math.cos(ang)*bsp*1.6,vy:Math.sin(ang)*bsp*1.6,r:6*sc2,col:'#ff9f1c',life:1});
-        // spawn asteroid hazard
         if(Math.random()<0.2){
           let ax=Math.random()*W, ay=-30;
           asteroids.push({x:ax,y:ay,vx:(Math.random()-0.5)*3*sc2,vy:2*sc2+Math.random()*2*sc2,r:12*sc2,angle:0,spin:(Math.random()-0.5)*0.1,life:1});
@@ -797,20 +755,17 @@ function update(dt,rawDt){
           let ang=(i/8)*Math.PI*2+boss.t;
           enemyBullets.push({x:boss.x,y:boss.y,vx:Math.cos(ang)*bsp*0.8,vy:Math.sin(ang)*bsp*0.8,r:4*sc2,col:'#a78bfa',life:1});
         }
-        // laser wall
         if(Math.random()<0.02){
           laserWalls.push({y:H*0.3+Math.random()*H*0.4,active:false,timer:120,chargeTimer:40});
         }
       }
     }
 
-    // Laser walls activate
     for(let lw of laserWalls){
       lw.chargeTimer-=dt;
       if(lw.chargeTimer<=0) lw.active=true;
     }
 
-    // Boss weak spot hit (deals 3x damage)
     for(let b of bullets){
       if(!b._dead){
         let weakPt={x:weakAbsX,y:weakAbsY,r:boss.r*0.22};
@@ -836,7 +791,6 @@ function update(dt,rawDt){
       spawnParticles(boss.x,boss.y,'#ff2d78',35,5);
       spawnParticles(boss.x,boss.y,'#2dffcf',25,7);
       spawnPop(boss.x-30,boss.y,pts,'#ff9f1c');
-      // split into 3 mini enemies
       if(!boss.splitDone){
         boss.splitDone=true;
         for(let i=0;i<3;i++){
@@ -849,18 +803,15 @@ function update(dt,rawDt){
     if(player.invincible<=0&&dist(player,boss)<player.r+boss.r*0.88) hitPlayer();
   }
 
-  // Powerup drops
   for(let p of powerups){
     p.y+=0.8*dt; p.pulse+=0.08*dt;
     if(dist(player,p)<player.r+p.r*1.2){ activatePowerup(p.type); p.collected=true; spawnParticles(p.x,p.y,p.color,12,3); }
   }
   powerups=powerups.filter(p=>!p.collected&&p.y<H+40);
 
-  // Particles
   for(let p of particles){p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=0.028*dt;p.vx*=0.96;p.vy*=0.96;}
   particles=particles.filter(p=>p.life>0);
 
-  // Wave clear
   if(enemies.length===0&&!bossActive&&state===SC.PLAYING){
     waveTimer-=dt;
     if(waveTimer<=0){
@@ -886,7 +837,6 @@ function killEnemy(e, bx, by) {
   spawnParticles(e.x,e.y,e.color,e.elite?22:14,e.elite?5:3.5);
   spawnPop(bx-20,by,pts,e.color);
   doScreenShake(e.elite?10:4,e.elite?12:6);
-  // drop powerup
   let dropChance = e.elite?1.0:0.12+(wave*0.01);
   if(Math.random()<dropChance){
     let type=e.elite?PU_TYPES[Math.floor(Math.random()*PU_TYPES.length)]:PU_TYPES[Math.floor(Math.random()*(PU_TYPES.length-1))];
@@ -898,7 +848,6 @@ function killEnemy(e, bx, by) {
 }
 
 function hitPlayer() {
-  // shield absorbs
   if(shieldHp>0){ shieldHp--; updateShieldBar(); player.invincible=60; player.flash=60;
     spawnParticles(player.x,player.y,'#60d9ff',8,2); doScreenShake(5,8); return; }
 
@@ -911,12 +860,10 @@ function hitPlayer() {
   doScreenShake(16,20);
   if(lives<=0){
     if(!lastStandActive){
-      // trigger last stand
       lastStandActive=true; lastStandTimer=180;
       lastStandEl.classList.add('show');
       setTimeout(()=>lastStandEl.classList.remove('show'),600);
       player.invincible=180;
-      // massive burst
       for(let a=0;a<Math.PI*2;a+=Math.PI/8){
         bullets.push({x:player.x,y:player.y,vx:Math.cos(a)*14*(W/680),vy:Math.sin(a)*14*(W/680),r:6*(W/680),color:'#ff2d78',piercing:true,_dead:false});
       }
@@ -935,7 +882,6 @@ function showScorecard() {
   score+=waveBonus;
   scoreValEl.textContent=score;
 
-  // build diff options
   let opts=[
     {id:'danger',cls:'danger',icon:'!!',name:'BULLET STORM',desc:'Enemy fire rate +50%',reward:'SCORE x1.5 next wave',mod:()=>{diffMod.bulletSpeed=1.5;diffMod.reward='Score x1.5';}},
     {id:'warn',cls:'warn',icon:'+',name:'ELITE SURGE',desc:'More elite enemies',reward:'Guaranteed power-up drop',mod:()=>{diffMod.enemyCount=1.3;diffMod.reward='Elite wave';}},
@@ -984,7 +930,6 @@ function showEnd(win){
   document.getElementById('start-btn').addEventListener('click',startGame);
 }
 
-// ─── DRAW ─────────────────────────────────────────────────────────────────────
 function hexPath(x,y,r,sides,rot){
   ctx.beginPath();
   for(let i=0;i<sides;i++){
@@ -1008,16 +953,13 @@ function draw(){
   ctx.save();
   ctx.translate(shakeX,shakeY);
 
-  // BG
   ctx.fillStyle='#02020f'; ctx.fillRect(-5,-5,W+10,H+10);
 
-  // Grid
   ctx.strokeStyle='rgba(45,255,207,0.022)'; ctx.lineWidth=1;
   let gs=Math.round(H/18);
   for(let y=0;y<H;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
   for(let x=0;x<W;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
 
-  // Stars
   let now=Date.now()*0.001;
   for(let s of bgStars){
     s.y+=s.sp*0.002; if(s.y>1){s.y=0;s.x=Math.random();}
@@ -1025,8 +967,6 @@ function draw(){
     ctx.fillStyle=`rgba(255,255,255,${tw*s.s*0.45})`;
     ctx.beginPath(); ctx.arc(s.x*W,s.y*H,s.s*(W/680)*0.9,0,Math.PI*2); ctx.fill();
   }
-
-  // Nebula
   let ng=ctx.createRadialGradient(W*0.2,H*0.3,0,W*0.2,H*0.3,W*0.35);
   ng.addColorStop(0,'rgba(100,45,180,0.055)'); ng.addColorStop(1,'rgba(0,0,0,0)');
   ctx.fillStyle=ng; ctx.fillRect(0,0,W,H);
@@ -1034,7 +974,6 @@ function draw(){
   ng2.addColorStop(0,'rgba(45,100,255,0.045)'); ng2.addColorStop(1,'rgba(0,0,0,0)');
   ctx.fillStyle=ng2; ctx.fillRect(0,0,W,H);
 
-  // Multiplier zones
   for(let z of multiplierZones){
     let pr=0.5+0.15*Math.sin(z.pulse);
     ctx.save();
@@ -1052,12 +991,10 @@ function draw(){
     ctx.restore();
   }
 
-  // Laser walls
   for(let lw of laserWalls){
     ctx.save();
     let progress=1-lw.timer/120;
     if(!lw.active){
-      // charging (flicker)
       ctx.globalAlpha=0.3+0.3*Math.sin(Date.now()*0.02);
       ctx.strokeStyle='#ff9f1c'; ctx.lineWidth=2;
       ctx.setLineDash([10,8]);
@@ -1072,7 +1009,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Asteroids
   for(let a of asteroids){
     ctx.save(); ctx.translate(a.x,a.y); ctx.rotate(a.angle);
     ctx.fillStyle='#888'; ctx.strokeStyle='#aaa'; ctx.lineWidth=1;
@@ -1088,7 +1024,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Enemy bullets
   for(let b of enemyBullets){
     ctx.save(); ctx.shadowColor=b.col; ctx.shadowBlur=10;
     ctx.fillStyle=b.col; ctx.globalAlpha=0.88;
@@ -1096,7 +1031,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Particles
   for(let p of particles){
     ctx.save(); ctx.globalAlpha=p.life*0.9;
     ctx.shadowColor=p.col; ctx.shadowBlur=8;
@@ -1105,7 +1039,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Player trail
   for(let t of player.trail){
     if(t.life<=0) continue;
     ctx.save(); ctx.globalAlpha=t.life*0.3;
@@ -1114,23 +1047,19 @@ function draw(){
     ctx.restore();
   }
 
-  // Powerup drops
   for(let p of powerups){
     ctx.save();
     let pr2=0.8+0.2*Math.sin(p.pulse);
     ctx.shadowColor=p.color; ctx.shadowBlur=16*pr2;
     ctx.fillStyle=p.color; ctx.globalAlpha=0.9;
     ctx.beginPath(); ctx.arc(p.x,p.y,p.r*pr2,0,Math.PI*2); ctx.fill();
-    // inner icon
     ctx.fillStyle='#fff'; ctx.globalAlpha=0.8;
     ctx.beginPath(); ctx.arc(p.x,p.y,p.r*0.45,0,Math.PI*2); ctx.fill();
-    // ring
     ctx.strokeStyle=p.color; ctx.lineWidth=1.5; ctx.globalAlpha=0.4;
     ctx.beginPath(); ctx.arc(p.x,p.y,p.r*1.6*pr2,0,Math.PI*2); ctx.stroke();
     ctx.restore();
   }
 
-  // Player bullets
   for(let b of bullets){
     ctx.save();
     ctx.shadowColor=b.color; ctx.shadowBlur=16;
@@ -1140,7 +1069,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Laser beam
   if(laserActive){
     ctx.save();
     ctx.shadowColor='#2dffcf'; ctx.shadowBlur=30;
@@ -1152,7 +1080,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Enemies
   for(let e of enemies){
     if(e.dead) continue;
     ctx.save();
@@ -1179,7 +1106,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Boss
   if(bossActive&&boss&&!boss.dead){
     let pulse=0.85+0.15*Math.sin(Date.now()*0.004);
     let phaseColors=['#ff2d78','#ff6bff','#ff9f1c'];
@@ -1196,7 +1122,6 @@ function draw(){
     hexPath(boss.x,boss.y,boss.r*0.65,6,-boss.t*0.8); ctx.stroke();
     ctx.fillStyle='#fff544'; ctx.globalAlpha=0.3;
     hexPath(boss.x,boss.y,boss.r*0.35,4,boss.t*1.5); ctx.fill();
-    // weak spot
     let weakAbsX=boss.x+Math.cos(boss.weakAngle)*boss.r*0.6;
     let weakAbsY=boss.y+Math.sin(boss.weakAngle)*boss.r*0.3;
     ctx.globalAlpha=0.8+0.2*Math.sin(Date.now()*0.01);
@@ -1209,7 +1134,6 @@ function draw(){
     ctx.restore();
   }
 
-  // Orbit shields
   if(weapons.orbit){
     for(let o of orbitShields){
       if(!o.x) continue;
@@ -1223,7 +1147,6 @@ function draw(){
     }
   }
 
-  // Player
   if(state===SC.PLAYING||lastStandActive){
     let flashOn=player.flash<=0||Math.floor(player.flash/6)%2===0;
     if(flashOn){
@@ -1245,7 +1168,6 @@ function draw(){
         ctx.fillStyle=lastStandActive?'#ff9f1c':'#ff2d78'; ctx.shadowColor=ctx.fillStyle; ctx.shadowBlur=10;
         ctx.beginPath(); ctx.arc(player.x,ty,player.r*0.18*(1-i/tLen),0,Math.PI*2); ctx.fill();
       }
-      // shield ring
       if(shieldHp>0){
         ctx.strokeStyle='#60d9ff'; ctx.lineWidth=2; ctx.globalAlpha=0.5+0.2*Math.sin(Date.now()*0.01);
         ctx.shadowColor='#60d9ff'; ctx.shadowBlur=12;
@@ -1253,7 +1175,6 @@ function draw(){
       }
       ctx.restore();
     }
-    // Crosshair
     if(targetX!==null){
       ctx.save();
       ctx.strokeStyle='rgba(45,255,207,0.35)'; ctx.lineWidth=1;
@@ -1265,7 +1186,7 @@ function draw(){
     }
   }
 
-  ctx.restore(); // end shake transform
+  ctx.restore();
 }
 </script>
 </body>
