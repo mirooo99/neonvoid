@@ -13,15 +13,12 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 #wrap{position:relative;width:100vw;height:100vh;}
 #gc{display:block;width:100%;height:100%;cursor:none;}
 #ui{position:absolute;inset:0;pointer-events:none;}
+html{scroll-behavior:smooth;}
+html::-webkit-scrollbar{width:4px;}
+html::-webkit-scrollbar-track{background:#030408;}
+html::-webkit-scrollbar-thumb{background:rgba(0,255,178,0.2);border-radius:2px;}
+*{scrollbar-width:thin;scrollbar-color:rgba(0,255,178,0.2) #030408;}
 
-  html { 
-    scroll-behavior: smooth;
-  }
-  html::-webkit-scrollbar { width: 4px; }
-  html::-webkit-scrollbar-track { background: #030408; }
-  html::-webkit-scrollbar-thumb { background: rgba(0,255,178,0.2); border-radius: 2px; }
-  * { scrollbar-width: thin; scrollbar-color: rgba(0,255,178,0.2) #030408; }
-  
 .hud-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;padding:14px 20px;pointer-events:none;gap:8px;}
 .hud-box{background:rgba(0,0,0,0.6);border:1px solid rgba(45,255,207,0.18);padding:7px 14px;border-radius:4px;min-width:80px;}
 .hud-label{font-size:9px;letter-spacing:3px;color:rgba(45,255,207,0.45);margin-bottom:2px;text-transform:uppercase;}
@@ -69,11 +66,9 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 #pu-notify-txt{font-family:'Orbitron',monospace;font-size:clamp(16px,3vw,24px);font-weight:900;letter-spacing:4px;}
 #pu-notify-sub{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:4px;}
 
-/* achievement toast */
 #ach-toast{position:absolute;top:140px;right:20px;pointer-events:none;opacity:0;transition:opacity .4s;max-width:220px;}
 .ach-inner{background:rgba(5,5,25,0.92);border:1px solid rgba(255,245,68,0.4);border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:10px;}
 .ach-icon{font-size:22px;flex-shrink:0;}
-.ach-texts{}
 .ach-title{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;color:#fff544;margin-bottom:2px;}
 .ach-name{font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:1px;}
 
@@ -112,31 +107,43 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 @keyframes lastStandFlash{0%{opacity:0.8;background:rgba(255,45,120,0.3);}100%{opacity:0;background:transparent;}}
 #last-stand-txt{font-family:'Orbitron',monospace;font-size:clamp(28px,6vw,64px);font-weight:900;letter-spacing:6px;color:#ff2d78;text-shadow:0 0 60px rgba(255,45,120,1);}
 
-/* ship select on main menu */
-.ship-select{display:flex;gap:12px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;}
-.ship-opt{width:84px;height:84px;border:2px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:all .2s;background:rgba(5,5,20,0.8);}
-.ship-opt:hover{transform:translateY(-2px);}
-.ship-opt.selected{border-color:rgba(45,255,207,0.7);background:rgba(45,255,207,0.08);}
-.ship-opt.locked-ship{border-color:rgba(255,255,255,0.06);opacity:0.5;cursor:default;}
+/* ── SHIP SELECT ── */
+.ship-select{display:flex;gap:16px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;}
+.ship-opt{width:90px;height:90px;border:2px solid rgba(255,255,255,0.12);border-radius:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:all .2s;background:rgba(5,5,20,0.8);}
+.ship-opt:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.28);}
+.ship-opt.selected{border-color:rgba(45,255,207,0.8);background:rgba(45,255,207,0.1);box-shadow:0 0 18px rgba(45,255,207,0.15);}
+.ship-opt.locked-ship{border-color:rgba(255,255,255,0.06);opacity:0.4;cursor:default;}
 .ship-opt canvas{display:block;}
-.ship-opt-name{font-size:7px;letter-spacing:1px;color:rgba(255,255,255,0.4);}
+.ship-opt-name{font-size:8px;letter-spacing:2px;color:rgba(255,255,255,0.4);}
 .ship-opt.selected .ship-opt-name{color:#2dffcf;}
 
-#overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,5,0.9);pointer-events:all;overflow-y:auto;padding:48px 20px;gap:0;}
+/* ── OVERLAY / MAIN MENU ── */
+#overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background:rgba(0,0,5,0.92);pointer-events:all;overflow-y:auto;padding:40px 24px 60px;}
 #overlay.hidden{display:none;}
 .ov-title{font-family:'Orbitron',monospace;font-size:clamp(30px,7vw,76px);font-weight:900;letter-spacing:6px;background:linear-gradient(135deg,#ff2d78 0%,#ff9f1c 50%,#2dffcf 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
-.ov-sub{color:rgba(255,255,255,0.2);font-size:11px;letter-spacing:6px;margin-bottom:20px;}
+.ov-sub{color:rgba(255,255,255,0.2);font-size:11px;letter-spacing:6px;margin-bottom:28px;}
 .ov-score-lbl{color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:3px;margin-bottom:5px;}
 .ov-score{font-family:'Orbitron',monospace;font-size:clamp(32px,5vw,58px);font-weight:900;margin-bottom:6px;}
 .ov-score.cyan{color:#2dffcf;}
 .ov-score.red{color:#ff2d78;}
 .ov-detail{color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:2px;margin-bottom:24px;}
-.ov-controls{display:flex;gap:24px;margin-bottom:20px;flex-wrap:wrap;justify-content:center;}
-.ov-ctrl{text-align:center;color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:2px;}
-.ov-ctrl strong{display:block;color:rgba(255,255,255,0.55);font-size:12px;margin-bottom:3px;}
+.ov-controls{display:flex;gap:20px;margin-bottom:28px;flex-wrap:wrap;justify-content:center;padding:12px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;}
+.ov-ctrl{text-align:center;color:rgba(255,255,255,0.22);font-size:9px;letter-spacing:2px;}
+.ov-ctrl strong{display:block;color:rgba(255,255,255,0.6);font-size:11px;margin-bottom:4px;font-family:'Orbitron',monospace;}
+
+/* ── SECTION HEADERS ── */
+.sec-hdr{font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.2);margin-bottom:14px;margin-top:6px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.07);width:100%;max-width:480px;text-align:center;}
+
+/* ── HIGH SCORES ── */
+.hs-row{display:flex;gap:28px;margin-bottom:28px;flex-wrap:wrap;justify-content:center;}
+.hs-item{text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:12px 20px;min-width:110px;}
+.hs-label{font-size:8px;letter-spacing:3px;margin-bottom:6px;}
+.hs-value{font-family:'Orbitron',monospace;font-size:26px;font-weight:700;}
+
+/* ── BUTTONS ── */
 .btn{padding:13px 44px;border:none;border-radius:4px;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:3px;cursor:pointer;transition:transform .1s,box-shadow .2s;}
 .btn:hover{transform:scale(1.05);}
-.btn.primary{background:linear-gradient(90deg,#ff2d78,#ff9f1c);color:#000;box-shadow:0 0 28px rgba(255,45,120,0.4);min-width:220px;font-size:14px;}
+.btn.primary{background:linear-gradient(90deg,#ff2d78,#ff9f1c);color:#000;box-shadow:0 0 28px rgba(255,45,120,0.4);min-width:240px;font-size:15px;padding:16px 44px;}
 .btn.primary:hover{box-shadow:0 0 50px rgba(255,45,120,0.7);}
 .btn.cyan{background:linear-gradient(90deg,#2dffcf,#60d9ff);color:#000;box-shadow:0 0 28px rgba(45,255,207,0.35);}
 .btn.purple{background:linear-gradient(90deg,#a78bfa,#ff6bff);color:#000;box-shadow:0 0 28px rgba(167,139,250,0.35);}
@@ -144,13 +151,14 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .btn.sm{padding:9px 24px;font-size:10px;}
 .btn-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
 
-/* mode select tabs */
-.mode-tabs{display:flex;gap:0;margin-bottom:20px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;overflow:hidden;}
-.mode-tab{padding:8px 58px;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.3);transition:all .2s;}
+/* ── MODE TABS ── */
+.mode-tabs{display:flex;gap:0;margin-bottom:8px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;width:100%;max-width:380px;}
+.mode-tab{flex:1;padding:10px 0;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.3);transition:all .2s;}
 .mode-tab.active{background:rgba(45,255,207,0.12);color:#2dffcf;}
 
-.ach-panel{margin-bottom:20px;max-width:460px;width:100%;border-top:1px solid rgba(45,255,207,0.12);padding-top:24px;margin-top:8px;}
-.ach-panel-title{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:10px;text-align:center;}
+/* ── ACHIEVEMENTS ── */
+.ach-panel{margin-bottom:20px;max-width:480px;width:100%;}
+.ach-panel-title{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:12px;text-align:center;}
 .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;}
 .ach-item{background:rgba(5,5,20,0.7);border:1px solid rgba(255,255,255,0.06);border-radius:5px;padding:8px 10px;text-align:center;transition:all .3s;}
 .ach-item.unlocked{border-color:rgba(255,245,68,0.3);background:rgba(255,245,68,0.04);}
@@ -158,7 +166,7 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 .ach-item-name{font-size:8px;letter-spacing:1px;color:rgba(255,255,255,0.25);}
 .ach-item.unlocked .ach-item-name{color:#fff544;}
 
-/* daily challenge badge */
+/* ── DAILY BADGE ── */
 .daily-info{background:rgba(255,245,68,0.06);border:1px solid rgba(255,245,68,0.2);border-radius:6px;padding:10px 18px;margin-bottom:16px;text-align:center;}
 .daily-info-title{font-family:'Orbitron',monospace;font-size:9px;letter-spacing:3px;color:#fff544;margin-bottom:4px;}
 .daily-info-sub{font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:1px;}
@@ -172,8 +180,6 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 
 #zone-txt{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;color:#fff544;pointer-events:none;opacity:0;transition:opacity .3s;}
 #zone-txt.show{opacity:1;}
-
-/* new enemy type: splitter flash */
 @keyframes splitFlash{0%{opacity:0.9;}100%{opacity:0;transform:scale(3);}}
 </style>
 </head>
@@ -196,17 +202,14 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
     </div>
   </div>
   <div id="mode-badge"></div>
-
   <div id="upgrade-bar-wrap">
     <div id="upgrade-lbl">UPGRADE 0/10</div>
     <div id="upgrade-track"><div id="upgrade-fill" style="width:0%"></div></div>
   </div>
-
   <div id="shield-bar-wrap">
     <div id="shield-lbl">SHIELD</div>
     <div id="shield-track"><div id="shield-fill" style="width:0%"></div></div>
   </div>
-
   <div id="weapon-row">
     <div class="wslot active" id="ws-basic">BASIC</div>
     <div class="wslot locked" id="ws-rapid">RAPID</div>
@@ -214,24 +217,20 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
     <div class="wslot locked" id="ws-missile">MISSILE</div>
     <div class="wslot locked" id="ws-orbit">ORBIT</div>
   </div>
-
   <div id="combo-bar" class="hidden">
     <div id="combo-txt">COMBO x1</div>
     <div id="combo-fill-wrap"><div id="combo-fill" style="width:100%"></div></div>
     <div id="streak-txt"></div>
   </div>
-
   <div id="boss-bar-wrap">
     <div id="boss-lbl">BOSS</div>
     <div id="boss-phase-lbl"></div>
     <div id="boss-track"><div id="boss-fill" style="width:100%"></div></div>
   </div>
-
   <div id="wave-flash"><div id="wave-flash-txt">WAVE 1</div><div id="wave-flash-sub"></div></div>
   <div id="pu-notify"><div id="pu-notify-txt"></div><div id="pu-notify-sub"></div></div>
   <div id="last-stand"><div id="last-stand-txt">LAST STAND</div></div>
   <div id="zone-txt">SCORE ZONE - 2x POINTS</div>
-
   <div id="ach-toast">
     <div class="ach-inner">
       <div class="ach-icon" id="ach-toast-icon">🏆</div>
@@ -241,7 +240,6 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
       </div>
     </div>
   </div>
-
   <div id="dpad">
     <div class="dpad-ring">
       <div class="dpad-btn" id="dp-up">^</div>
@@ -272,7 +270,6 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 </div>
 
 <script>
-// ─── Audio (Web Audio API procedural SFX) ────────────────────────────────────
 const AC = new (window.AudioContext || window.webkitAudioContext)();
 function resumeAC(){ if(AC.state==='suspended') AC.resume(); }
 document.addEventListener('click', resumeAC, {once:true});
@@ -328,7 +325,6 @@ function sfx(type){
   }
 }
 
-// ─── Persistence ─────────────────────────────────────────────────────────────
 const SAVE_KEY='neonvoid_save';
 let save={
   highScore:0, endlessHigh:0,
@@ -344,7 +340,6 @@ function loadSave(){
 function writeSave(){ try{ localStorage.setItem(SAVE_KEY,JSON.stringify(save)); }catch(e){} }
 loadSave();
 
-// ─── Ships ────────────────────────────────────────────────────────────────────
 const SHIPS={
   viper:{ name:'VIPER', color:'#2dffcf', unlockKills:0,
     draw:(ctx,x,y,r)=>{
@@ -379,7 +374,6 @@ const SHIPS={
   }
 };
 
-// ─── Achievements ─────────────────────────────────────────────────────────────
 const ACHIEVEMENTS=[
   {id:'first_blood', icon:'🩸', name:'First Blood', desc:'Kill your first enemy'},
   {id:'combo10',     icon:'🔥', name:'On Fire',      desc:'Reach combo x10'},
@@ -403,12 +397,10 @@ function checkAch(id){
   setTimeout(()=>{ el.style.opacity='0'; },3000);
 }
 
-// ─── Daily seed ───────────────────────────────────────────────────────────────
 function getDailyDate(){ let d=new Date(); return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`; }
 function mulberry32(seed){ return ()=>{ seed|=0; seed=seed+0x6D2B79F5|0; let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return((t^t>>>14)>>>0)/4294967296; }; }
 function dateToSeed(ds){ let h=0; for(let c of ds){h=Math.imul(31,h)+c.charCodeAt(0)|0;} return h; }
 
-// ─── Canvas & state ───────────────────────────────────────────────────────────
 const canvas=document.getElementById('gc');
 const ctx=canvas.getContext('2d');
 const wrap=document.getElementById('wrap');
@@ -444,9 +436,9 @@ resize(); window.addEventListener('resize',resize);
 
 const SC={IDLE:0,PLAYING:1,DEAD:2,WIN:3,SCORECARD:4};
 let state=SC.IDLE;
-let gameMode='classic'; // 'classic' | 'endless' | 'daily'
+let gameMode='classic';
 let dailyRng=null;
-let rng=Math.random; // overridden for daily
+let rng=Math.random;
 
 let player,bullets,enemies,particles,score,lives,combo,comboTimer;
 let wave,waveTimer,bossActive,boss,enemyBullets,shootTimer;
@@ -458,17 +450,14 @@ let lastStandActive=false,lastStandTimer=0;
 let inZone=false;
 let diffMod={bulletSpeed:1,enemyCount:1,bossHp:1,reward:''};
 let waveKills=0,waveStart=0;
-let waveNoHit=true; // for untouchable achievement
+let waveNoHit=true;
 let bombKillCount=0;
-
 let weapons={basic:true,rapid:false,laser:false,missile:false,orbit:false};
 let orbitShields=[];
 let laserActive=false,laserTimer=0;
 let upgradeKills=0,upgradeThreshold=10;
 let shieldHp=0,maxShieldHp=3;
 let missileTimer=0;
-
-// screen flash queue
 let screenFlashes=[];
 
 const STREAK_NAMES=['','','','NICE','GOOD','GREAT','AMAZING','AWESOME','GODLIKE','UNSTOPPABLE','LEGENDARY'];
@@ -493,22 +482,19 @@ canvas.addEventListener('touchstart',e=>{let r=canvas.getBoundingClientRect();ta
   el.addEventListener('mouseup',()=>dpadDir[d]=false);
 });
 
-// ─── Main menu ────────────────────────────────────────────────────────────────
 function showMainMenu(){
   overlay.classList.remove('hidden');
   let el=document.getElementById('main-menu-content');
   let dailyDate=getDailyDate();
   let dailyDone=save.dailyDate===dailyDate&&save.dailyDone;
 
-  // unlock ships based on lifetime kills
-  let unlockedCount=0;
   Object.keys(SHIPS).forEach(k=>{ if(save.totalKillsAll>=SHIPS[k].unlockKills&&!save.unlockedShips.includes(k)){ save.unlockedShips.push(k); writeSave(); } });
 
   let shipHtml=Object.keys(SHIPS).map(k=>{
     let s=SHIPS[k]; let locked=!save.unlockedShips.includes(k);
     return `<div class="ship-opt${save.selectedShip===k?' selected':''}${locked?' locked-ship':''}" data-ship="${k}" title="${locked?'Unlock at '+s.unlockKills+' kills':s.name}">
-      <canvas width="40" height="40" data-shipcanvas="${k}"></canvas>
-      <div class="ship-opt-name">${locked?'🔒':s.name}</div>
+      <canvas width="44" height="44" data-shipcanvas="${k}"></canvas>
+      <div class="ship-opt-name">${locked?'🔒 '+s.unlockKills:s.name}</div>
     </div>`;
   }).join('');
 
@@ -522,44 +508,57 @@ function showMainMenu(){
       <div class="ov-ctrl"><strong>MOUSE</strong>Steer ship</div>
       <div class="ov-ctrl"><strong>AUTO</strong>Fires always</div>
       <div class="ov-ctrl"><strong>COMBO</strong>Score boost</div>
-      <div class="ov-ctrl"><strong>DROPS</strong>Grab power-ups</div>
+      <div class="ov-ctrl"><strong>DROPS</strong>Power-ups</div>
       <div class="ov-ctrl"><strong>ZONES</strong>2x points</div>
     </div>
-    <div style="font-size:11px;letter-spacing:4px;color:rgba(255,255,255,0.18);margin-bottom:16px;margin-top:8px;border-bottom:1px solid rgba(255,255,255,0.07);padding-bottom:10px;">SELECT SHIP</div>
+
+    <div class="sec-hdr">SELECT SHIP</div>
     <div class="ship-select" id="ship-select">${shipHtml}</div>
+
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="classic">CLASSIC</button>
       <button class="mode-tab" data-mode="endless">ENDLESS</button>
       <button class="mode-tab" data-mode="daily">DAILY</button>
     </div>
-    <div id="mode-desc" style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;margin-bottom:16px;text-align:center;">Clear 10 waves to win</div>
-    ${dailyDone?`<div class="daily-info" id="daily-done-box"><div class="daily-info-title">TODAY'S CHALLENGE DONE</div><div class="daily-info-sub">Score: ${save.dailyScore.toLocaleString()}</div></div>`:''}
-    <div class="btn-row" style="margin-bottom:20px;">
+    <div id="mode-desc" style="font-size:10px;color:rgba(255,255,255,0.22);letter-spacing:2px;margin-bottom:20px;text-align:center;">Clear 10 waves to win</div>
+
+    ${dailyDone?`<div class="daily-info"><div class="daily-info-title">TODAY'S CHALLENGE DONE</div><div class="daily-info-sub">Score: ${save.dailyScore.toLocaleString()}</div></div>`:''}
+
+    <div class="btn-row" style="margin-bottom:32px;">
       <button class="btn primary" id="start-btn">LAUNCH</button>
     </div>
-    <div style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.15);margin-bottom:6px;">HIGH SCORES</div>
-    <div style="display:flex;gap:20px;margin-bottom:20px;flex-wrap:wrap;justify-content:center;">
-      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(45,255,207,0.4);">CLASSIC</div><div style="font-family:'Orbitron',monospace;font-size:24px;color:#2dffcf;">${save.highScore.toLocaleString()}</div></div>
-      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(167,139,250,0.4);">ENDLESS</div><div style="font-family:'Orbitron',monospace;font-size:24px;color:#a78bfa;">${save.endlessHigh.toLocaleString()}</div></div>
-      <div style="text-align:center;"><div style="font-size:8px;letter-spacing:2px;color:rgba(255,245,68,0.4);">LIFETIME KILLS</div><div style="font-family:'Orbitron',monospace;font-size:24px;color:#fff544;">${save.totalKillsAll.toLocaleString()}</div></div>
+
+    <div class="sec-hdr">HIGH SCORES</div>
+    <div class="hs-row">
+      <div class="hs-item">
+        <div class="hs-label" style="color:rgba(45,255,207,0.5);">CLASSIC</div>
+        <div class="hs-value" style="color:#2dffcf;">${save.highScore.toLocaleString()}</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-label" style="color:rgba(167,139,250,0.5);">ENDLESS</div>
+        <div class="hs-value" style="color:#a78bfa;">${save.endlessHigh.toLocaleString()}</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-label" style="color:rgba(255,245,68,0.5);">LIFETIME KILLS</div>
+        <div class="hs-value" style="color:#fff544;">${save.totalKillsAll.toLocaleString()}</div>
+      </div>
     </div>
+
     <div class="ach-panel">
-      <div class="ach-panel-title">ACHIEVEMENTS (${Object.keys(save.achievements).length}/${ACHIEVEMENTS.length})</div>
+      <div class="sec-hdr">ACHIEVEMENTS (${Object.keys(save.achievements).length}/${ACHIEVEMENTS.length})</div>
       <div class="ach-grid">${achHtml}</div>
     </div>
   `;
 
-  // draw mini ship previews
   document.querySelectorAll('[data-shipcanvas]').forEach(c=>{
     let k=c.dataset.shipcanvas; let s=SHIPS[k]; let cx=c.getContext('2d');
     let locked=!save.unlockedShips.includes(k);
-    cx.clearRect(0,0,40,40);
-    cx.save(); cx.shadowColor=s.color; cx.shadowBlur=8;
+    cx.clearRect(0,0,44,44);
+    cx.save(); cx.shadowColor=s.color; cx.shadowBlur=10;
     cx.fillStyle=locked?'rgba(255,255,255,0.15)':s.color; cx.globalAlpha=locked?0.4:0.9;
-    s.draw(cx,20,20,9); cx.fill(); cx.restore();
+    s.draw(cx,22,22,10); cx.fill(); cx.restore();
   });
 
-  // ship select
   document.querySelectorAll('.ship-opt').forEach(el=>{
     el.addEventListener('click',()=>{
       let k=el.dataset.ship; if(!save.unlockedShips.includes(k)) return;
@@ -569,7 +568,6 @@ function showMainMenu(){
     });
   });
 
-  // mode tabs
   let selectedMode='classic';
   const modeDescs={classic:'Clear 10 waves to win',endless:'Infinite waves — how far can you go?',daily:'Same challenge for everyone today'};
   document.querySelectorAll('.mode-tab').forEach(tab=>{
@@ -620,7 +618,6 @@ function initGame(){
   waveValEl.textContent='1';
   comboBar.classList.add('hidden');
   bossWrap.classList.remove('show');
-  // mode badge
   modeBadge.textContent=gameMode==='endless'?'ENDLESS MODE':gameMode==='daily'?'DAILY CHALLENGE':'';
   modeBadge.className=''; modeBadge.id='mode-badge';
   if(gameMode==='endless') modeBadge.classList.add('endless');
@@ -642,37 +639,20 @@ function spawnWave(){
   enemies=[];bossActive=false;boss=null;
   bossWrap.classList.remove('show');
   asteroids=[];laserWalls=[];
-
   let effectiveWave=gameMode==='endless'?Math.min(wave,10)+Math.floor(wave/10):wave;
   let count=Math.round((4+effectiveWave*2)*diffMod.enemyCount);
   let types=['zigzag','straight','circular','diagonal','sine','spiral'];
-  // NEW: splitter & charger types appear at later waves
   if(effectiveWave>=4) types.push('splitter');
   if(effectiveWave>=7) types.push('charger');
-
   for(let i=0;i<count;i++){
     let t=types[Math.floor(rng()*Math.min(effectiveWave+1,types.length))];
     let col=COLORS[Math.floor(rng()*COLORS.length)];
     let ehp=1+(effectiveWave>3?1:0)+(effectiveWave>6?1:0)+(effectiveWave>9?1:0);
     let isElite=rng()<0.08+effectiveWave*0.01;
-    enemies.push({
-      x:player.r*4+rng()*(W-player.r*8), y:-35-i*45,
-      r:Math.min(W,H)*(isElite?0.024:0.018),
-      hp:isElite?ehp*3:ehp, maxHp:isElite?ehp*3:ehp,
-      speed:(1.0+effectiveWave*0.18)*(H/600),
-      type:t, t:rng()*100, color:isElite?'#ffd700':col,
-      side:rng()>0.5?1:-1,
-      shootCd:rng()*60, shootRate:Math.max(100-effectiveWave*7,25)/diffMod.bulletSpeed,
-      dead:false, spawnX:0, elite:isElite,
-      // charger fields
-      chargeVx:0, chargeVy:0, chargeActive:false, chargeCd:rng()*80+80,
-      // splitter flag
-      hasSplit:false
-    });
+    enemies.push({x:player.r*4+rng()*(W-player.r*8),y:-35-i*45,r:Math.min(W,H)*(isElite?0.024:0.018),hp:isElite?ehp*3:ehp,maxHp:isElite?ehp*3:ehp,speed:(1.0+effectiveWave*0.18)*(H/600),type:t,t:rng()*100,color:isElite?'#ffd700':col,side:rng()>0.5?1:-1,shootCd:rng()*60,shootRate:Math.max(100-effectiveWave*7,25)/diffMod.bulletSpeed,dead:false,spawnX:0,elite:isElite,chargeVx:0,chargeVy:0,chargeActive:false,chargeCd:rng()*80+80,hasSplit:false});
   }
   if(wave%3!==0&&wave>1&&rng()<0.35) setTimeout(()=>{ if(state===SC.PLAYING&&!bossActive) spawnMiniBoss(); },5000);
   if(wave%3===0) spawnBoss();
-
   let sub=diffMod.reward?'BONUS: '+diffMod.reward:'';
   showWaveFlash(gameMode==='endless'?'WAVE '+wave:('WAVE '+wave),sub);
   sfx('boss');
@@ -710,19 +690,13 @@ function showWaveFlash(txt,sub){
   waveFlashTxt.textContent=txt; waveFlashSub.textContent=sub||'';
   waveFlash.style.opacity='1'; setTimeout(()=>{waveFlash.style.opacity='0';},1600);
 }
-
 function showPuNotify(name,sub,color){
   puNotifyTxt.textContent=name; puNotifyTxt.style.color=color||'#2dffcf';
   puNotifySub.textContent=sub||''; puNotify.style.opacity='1';
   setTimeout(()=>{puNotify.style.opacity='0';},1800);
 }
-
 function doScreenShake(mag,dur){ shakeMag=mag; setTimeout(()=>{shakeMag=0;shakeX=0;shakeY=0;},dur*16); }
-
-function flashScreen(col){
-  screenFlashes.push({col,life:1});
-}
-
+function flashScreen(col){ screenFlashes.push({col,life:1}); }
 function spawnParticles(x,y,col,n,speed){
   n=n||10; speed=speed||3;
   for(let i=0;i<n;i++){
@@ -730,14 +704,12 @@ function spawnParticles(x,y,col,n,speed){
     particles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,col,r:2+rng()*3});
   }
 }
-
 function spawnPop(x,y,val,col){
   let el=document.createElement('div'); el.className='score-pop';
   el.textContent='+'+val;
   el.style.cssText='left:'+x+'px;top:'+y+'px;color:'+(col||'#fff544')+';z-index:10;position:absolute;pointer-events:none;';
   document.getElementById('ui').appendChild(el); setTimeout(()=>el.remove(),1000);
 }
-
 function updateWeaponHUD(){ Object.keys(weapons).forEach(k=>{ wsSlots[k].className='wslot'+(weapons[k]?' active':' locked'); }); }
 function updateUpgradeBar(){ let pct=Math.min(upgradeKills/upgradeThreshold*100,100); upgradeFill.style.width=pct+'%'; upgradeLbl.textContent='UPGRADE '+upgradeKills+'/'+upgradeThreshold; }
 function updateShieldBar(){ shieldFill.style.width=(shieldHp/maxShieldHp*100)+'%'; }
@@ -808,7 +780,6 @@ function nearestEnemy(){
   for(let e of arr){ if(e.dead) continue; let d=dist(player,e); if(d<bd){bd=d;best=e;} }
   return best;
 }
-
 function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
 
 let lastTime=0, loopGen=0;
@@ -826,20 +797,15 @@ function startLoop(){ loopGen++; lastTime=0; const gen=loopGen; requestAnimation
 
 function update(dt,rawDt){
   let sc2=W/680;
-
   if(shakeMag>0){shakeX=(Math.random()-0.5)*shakeMag;shakeY=(Math.random()-0.5)*shakeMag;shakeMag*=0.85;if(shakeMag<0.5)shakeMag=0;}
   else{shakeX=0;shakeY=0;}
-
   for(let f of screenFlashes) f.life-=0.05*rawDt;
   screenFlashes=screenFlashes.filter(f=>f.life>0);
-
   if(lastStandActive){lastStandTimer-=rawDt;if(lastStandTimer<=0){lastStandActive=false;state=SC.DEAD;showEnd(false);return;}}
-
   if(dpadDir.up){targetY=player.y-60;targetX=player.x;}
   if(dpadDir.down){targetY=player.y+60;targetX=player.x;}
   if(dpadDir.left){targetX=player.x-60;targetY=player.y;}
   if(dpadDir.right){targetX=player.x+60;targetY=player.y;}
-
   if(targetX!==null){
     player.vx+=(targetX-player.x)*0.2*0.35-player.vx*0.35;
     player.vy+=(targetY-player.y)*0.2*0.35-player.vy*0.35;
@@ -849,38 +815,29 @@ function update(dt,rawDt){
   if(player.invincible>0) player.invincible-=dt;
   if(player.flash>0) player.flash-=dt;
   if(player.rapidTimer>0) player.rapidTimer-=rawDt;
-
   player.trail.push({x:player.x,y:player.y,life:1});
   if(player.trail.length>16) player.trail.shift();
   for(let t of player.trail) t.life-=0.07;
-
   inZone=false;
   for(let z of multiplierZones){z.pulse+=0.04*dt;if(dist(player,z)<z.r){inZone=true;break;}}
   inZone?zoneTxt.classList.add('show'):zoneTxt.classList.remove('show');
-
   if(weapons.orbit&&orbitShields.length>0){
     for(let o of orbitShields){o.angle+=0.04*dt;o.x=player.x+Math.cos(o.angle)*player.r*2.8;o.y=player.y+Math.sin(o.angle)*player.r*2.8;}
   }
-
   if(laserActive){laserTimer-=dt;if(laserTimer<=0) laserActive=false;}
-
   shootTimer-=dt; if(shootTimer<=0) shoot();
-
   for(let b of bullets){
     if(b.missile&&b.target&&!b.target.dead){
       let ang=Math.atan2(b.target.y-b.y,b.target.x-b.x); let sp=10*(H/600);
       b.vx=b.vx*0.85+Math.cos(ang)*sp*0.15; b.vy=b.vy*0.85+Math.sin(ang)*sp*0.15;
     }
   }
-
   if(comboTimer>0){
     comboTimer-=dt; comboFill.style.width=Math.max(0,(comboTimer/150)*100)+'%';
     if(comboTimer<=0){combo=1;comboBar.classList.add('hidden');}
   }
-
   for(let b of bullets){b.x+=(b.vx||0)*dt;b.y+=b.vy*dt;}
   bullets=bullets.filter(b=>b.y>-30&&b.x>-30&&b.x<W+30&&b.y<H+30);
-
   if(laserActive){
     let lx=player.x,ly=player.y-player.r;
     let testEnems=[...enemies,...(bossActive&&boss&&!boss.dead?[boss]:[])];
@@ -893,7 +850,6 @@ function update(dt,rawDt){
       }
     }
   }
-
   if(weapons.orbit){
     for(let o of orbitShields){
       if(!o.x) continue;
@@ -903,18 +859,14 @@ function update(dt,rawDt){
     }
     enemyBullets=enemyBullets.filter(b=>b.life>0);
   }
-
   for(let e of enemies){
     if(e.dead) continue;
     e.t+=0.04*dt;
     if(!e.spawnX) e.spawnX=e.x;
     let spd=e.speed*bulletTimeScale;
-
-    // ── NEW: charger logic ───
     if(e.type==='charger'){
       if(!e.chargeActive){
-        e.chargeCd-=dt;
-        e.y+=spd*0.3*dt;
+        e.chargeCd-=dt; e.y+=spd*0.3*dt;
         if(e.chargeCd<=0&&e.y>0){
           let ang=Math.atan2(player.y-e.y,player.x-e.x);
           e.chargeVx=Math.cos(ang)*spd*5; e.chargeVy=Math.sin(ang)*spd*5;
@@ -938,7 +890,6 @@ function update(dt,rawDt){
       }
     }
     e.x=Math.max(e.r,Math.min(W-e.r,e.x));
-
     e.shootCd-=dt;
     if(e.shootCd<=0&&e.y>0&&e.y<H*0.78){
       e.shootCd=e.shootRate;
@@ -948,12 +899,10 @@ function update(dt,rawDt){
       if(wave>5||e.elite){
         for(let s of[-0.3,0.3]) enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(ang+s)*bsp*0.85,vy:Math.sin(ang+s)*bsp*0.85,r:3*sc2,col:e.color,life:1});
       }
-      // charger fires ring when idle
       if(e.type==='charger'&&!e.chargeActive){
         for(let i=0;i<6;i++){let a=(i/6)*Math.PI*2; enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(a)*bsp*0.6,vy:Math.sin(a)*bsp*0.6,r:3*sc2,col:e.color,life:1});}
       }
     }
-
     for(let b of bullets){
       if(!b._dead&&dist(b,e)<e.r+b.r){
         if(!b.piercing) b._dead=true; shotsHit++;
@@ -962,12 +911,10 @@ function update(dt,rawDt){
       }
     }
     bullets=bullets.filter(b=>!b._dead);
-
     if(player.invincible<=0&&dist(player,e)<player.r+e.r*0.85){ hitPlayer(); e.dead=true; spawnParticles(e.x,e.y,e.color,10,3); }
     if(e.y>H+30) e.dead=true;
   }
   enemies=enemies.filter(e=>!e.dead);
-
   for(let a of asteroids){
     a.x+=a.vx*dt; a.y+=a.vy*dt; a.angle+=a.spin*dt; a.life-=0.003*dt;
     if(player.invincible<=0&&dist(player,a)<player.r+a.r*0.8){hitPlayer();a.life=0;}
@@ -975,16 +922,13 @@ function update(dt,rawDt){
     bullets=bullets.filter(b=>!b._dead);
   }
   asteroids=asteroids.filter(a=>a.life>0&&a.y<H+60&&a.x>-60&&a.x<W+60);
-
   for(let lw of laserWalls){
     lw.timer-=dt;
     if(lw.active&&player.invincible<=0) if(Math.abs(player.y-lw.y)<player.r+6) hitPlayer();
   }
   laserWalls=laserWalls.filter(lw=>lw.timer>0);
-
   for(let b of enemyBullets){b.x+=b.vx*bulletTimeScale*dt;b.y+=b.vy*bulletTimeScale*dt;}
   enemyBullets=enemyBullets.filter(b=>b.x>-20&&b.x<W+20&&b.y>-20&&b.y<H+20&&b.life>0);
-
   for(let b of enemyBullets){
     let d=dist(player,b);
     if(d<player.r*2.5&&bulletTimeScale===1&&player.invincible<=0){
@@ -994,7 +938,6 @@ function update(dt,rawDt){
     if(player.invincible<=0&&dist(player,b)<player.r*0.82+b.r){ hitPlayer(); b.life=0; spawnParticles(b.x,b.y,b.col,6,2); }
   }
   enemyBullets=enemyBullets.filter(b=>b.life>0);
-
   if(bossActive&&boss&&!boss.dead){
     boss.t+=0.015*dt;
     boss.x+=boss.vx*bulletTimeScale*dt;
@@ -1004,7 +947,6 @@ function update(dt,rawDt){
     let weakAbsX=boss.x+Math.cos(boss.weakAngle)*boss.r*0.6;
     let weakAbsY=boss.y+Math.sin(boss.weakAngle)*boss.r*0.3;
     updateBossPhase();
-
     boss.shootCd-=dt;
     if(boss.shootCd<=0){
       boss.shootCd=boss.shootRate/Math.max(1,bulletTimeScale);
@@ -1021,9 +963,7 @@ function update(dt,rawDt){
         if(Math.random()<0.02) laserWalls.push({y:H*0.3+Math.random()*H*0.4,active:false,timer:120,chargeTimer:40});
       }
     }
-
     for(let lw of laserWalls){lw.chargeTimer-=dt;if(lw.chargeTimer<=0) lw.active=true;}
-
     for(let b of bullets){
       if(!b._dead){
         let weakPt={x:weakAbsX,y:weakAbsY,r:boss.r*0.22};
@@ -1033,7 +973,6 @@ function update(dt,rawDt){
     }
     bullets=bullets.filter(b=>!b._dead);
     bossFill.style.width=Math.max(0,(boss.hp/boss.maxHp)*100)+'%';
-
     if(boss.hp<=0){
       boss.dead=true; doScreenShake(25,40); flashScreen('rgba(255,159,28,0.2)');
       let pts=Math.round(200*combo*(inZone?2:1)); score+=pts; scoreValEl.textContent=score;
@@ -1046,16 +985,13 @@ function update(dt,rawDt){
     }
     if(player.invincible<=0&&dist(player,boss)<player.r+boss.r*0.88) hitPlayer();
   }
-
   for(let p of powerups){
     p.y+=0.8*dt; p.pulse+=0.08*dt;
     if(dist(player,p)<player.r+p.r*1.2){activatePowerup(p.type);p.collected=true;spawnParticles(p.x,p.y,p.color,12,3);}
   }
   powerups=powerups.filter(p=>!p.collected&&p.y<H+40);
-
   for(let p of particles){p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=0.028*dt;p.vx*=0.96;p.vy*=0.96;}
   particles=particles.filter(p=>p.life>0);
-
   let endlessWin=gameMode==='endless'?false:wave>=10;
   if(enemies.length===0&&!bossActive&&state===SC.PLAYING){
     waveTimer-=dt;
@@ -1084,15 +1020,12 @@ function killEnemy(e,bx,by){
   spawnPop(bx-20,by,pts,e.color);
   doScreenShake(e.elite?10:4,e.elite?12:6);
   sfx('explode');
-
-  // splitter: on death spawns 2 smaller children
   if(e.type==='splitter'&&!e.hasSplit&&e.r>Math.min(W,H)*0.009){
     for(let i=0;i<2;i++){
       let sc2=W/680;
       enemies.push({x:e.x+(i?1:-1)*e.r*1.2,y:e.y,r:e.r*0.55,hp:1,maxHp:1,speed:e.speed*1.3,type:'splitter',t:rng()*10,color:e.color,side:i?1:-1,shootCd:30,shootRate:e.shootRate*1.3,dead:false,spawnX:e.x,elite:false,hasSplit:true,chargeVx:0,chargeVy:0,chargeActive:false,chargeCd:999});
     }
   }
-
   let dropChance=e.elite?1.0:0.12+(wave*0.01);
   if(Math.random()<dropChance){
     let type=e.elite?PU_TYPES[Math.floor(Math.random()*PU_TYPES.length)]:PU_TYPES[Math.floor(Math.random()*(PU_TYPES.length-1))];
@@ -1134,13 +1067,11 @@ function showScorecard(){
   let waveBonus=Math.round(waveKills*5);
   score+=waveBonus; scoreValEl.textContent=score;
   if(waveNoHit) checkAch('nodamage');
-
   let opts=[
     {cls:'danger',icon:'!!',name:'BULLET STORM',desc:'Enemy fire rate +50%',reward:'SCORE x1.5 next wave',mod:()=>{diffMod.bulletSpeed=1.5;diffMod.reward='Score x1.5';}},
     {cls:'warn',  icon:'+', name:'ELITE SURGE', desc:'More elite enemies',  reward:'Guaranteed power-up drop',mod:()=>{diffMod.enemyCount=1.3;diffMod.reward='Elite wave';}},
     {cls:'cyan',  icon:'!', name:'BOSS RUSH',   desc:'Next boss has +50% HP',reward:'Unlock upgrade faster',mod:()=>{diffMod.bossHp=1.5;diffMod.reward='Fast upgrade';}},
   ];
-
   document.getElementById('sc-content').innerHTML=`
     <div class="sc-row"><span class="sc-lbl">Kills this wave</span><span class="sc-val">${waveKills}</span></div>
     <div class="sc-row"><span class="sc-lbl">Accuracy</span><span class="sc-val">${acc}%</span></div>
@@ -1155,7 +1086,6 @@ function showScorecard(){
       <div class="diff-card-desc">${o.desc}</div>
       <div class="diff-card-reward">${o.reward}</div>
     </div>`).join('');
-
   document.querySelectorAll('.diff-card').forEach((el,i)=>{
     el.addEventListener('click',()=>{
       document.querySelectorAll('.diff-card').forEach(c=>{c.style.pointerEvents='none';c.style.opacity='0.4';});
@@ -1169,7 +1099,6 @@ function showScorecard(){
 }
 
 function showEnd(win){
-  // save scores
   if(win||state===SC.DEAD){
     if(gameMode==='classic'&&score>save.highScore){save.highScore=score;}
     if(gameMode==='endless'&&score>save.endlessHigh){save.endlessHigh=score;}
@@ -1177,7 +1106,6 @@ function showEnd(win){
     writeSave();
   }
   overlay.classList.remove('hidden');
-  let scoreColor=win?'cyan':'red';
   let modeLabel=gameMode==='endless'?'ENDLESS':'';
   overlay.innerHTML=win
     ?`<div class="ov-title">YOU WIN</div><div class="ov-sub">ALL 10 WAVES CLEARED</div><div class="ov-score-lbl">FINAL SCORE</div><div class="ov-score cyan">${score.toLocaleString()}</div><div class="ov-detail">HIGH: ${save.highScore.toLocaleString()} &nbsp;|&nbsp; KILLS: ${totalKills}</div><div class="btn-row"><button class="btn cyan" id="retry-btn">PLAY AGAIN</button><button class="btn sm" id="menu-btn" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);">MENU</button></div>`
@@ -1194,25 +1122,19 @@ function showEnd(win){
   });
 }
 
-// ─── Draw ─────────────────────────────────────────────────────────────────────
 function hexPath(x,y,r,sides,rot){ ctx.beginPath(); for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2+(rot||0); i===0?ctx.moveTo(x+Math.cos(a)*r,y+Math.sin(a)*r):ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r);} ctx.closePath(); }
 
 function draw(){
   ctx.save();
   ctx.translate(shakeX,shakeY);
-
-  // screen flashes
   for(let f of screenFlashes){
     ctx.globalAlpha=f.life; ctx.fillStyle=f.col; ctx.fillRect(-5,-5,W+10,H+10); ctx.globalAlpha=1;
   }
-
   ctx.fillStyle='#02020f'; ctx.fillRect(-5,-5,W+10,H+10);
-
   ctx.strokeStyle='rgba(45,255,207,0.022)'; ctx.lineWidth=1;
   let gs=Math.round(H/18);
   for(let y=0;y<H;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
   for(let x=0;x<W;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-
   let now=Date.now()*0.001;
   for(let s of bgStars){
     s.y+=s.sp*0.002; if(s.y>1){s.y=0;s.x=Math.random();}
@@ -1223,7 +1145,6 @@ function draw(){
   ng.addColorStop(0,'rgba(100,45,180,0.055)'); ng.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=ng; ctx.fillRect(0,0,W,H);
   let ng2=ctx.createRadialGradient(W*0.8,H*0.7,0,W*0.8,H*0.7,W*0.3);
   ng2.addColorStop(0,'rgba(45,100,255,0.045)'); ng2.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=ng2; ctx.fillRect(0,0,W,H);
-
   for(let z of multiplierZones){
     ctx.save(); ctx.globalAlpha=0.08+0.04*Math.sin(z.pulse); ctx.fillStyle='#fff544';
     ctx.beginPath(); ctx.arc(z.x,z.y,z.r,0,Math.PI*2); ctx.fill();
@@ -1233,48 +1154,39 @@ function draw(){
     ctx.font='bold '+(11*(W/680))+'px Orbitron,monospace'; ctx.textAlign='center'; ctx.textBaseline='middle';
     ctx.fillText('2x',z.x,z.y); ctx.restore();
   }
-
   for(let lw of laserWalls){
     ctx.save();
     if(!lw.active){ctx.globalAlpha=0.3+0.3*Math.sin(Date.now()*0.02);ctx.strokeStyle='#ff9f1c';ctx.lineWidth=2;ctx.setLineDash([10,8]);ctx.beginPath();ctx.moveTo(0,lw.y);ctx.lineTo(W,lw.y);ctx.stroke();ctx.setLineDash([]);}
     else{ctx.globalAlpha=0.7;ctx.strokeStyle='#ff2d78';ctx.lineWidth=8;ctx.shadowColor='#ff2d78';ctx.shadowBlur=20;ctx.beginPath();ctx.moveTo(0,lw.y);ctx.lineTo(W,lw.y);ctx.stroke();}
     ctx.restore();
   }
-
   for(let a of asteroids){
     ctx.save();ctx.translate(a.x,a.y);ctx.rotate(a.angle);
     ctx.fillStyle='#888';ctx.strokeStyle='#aaa';ctx.lineWidth=1;ctx.shadowColor='#666';ctx.shadowBlur=6;
     ctx.beginPath(); for(let i=0;i<7;i++){let angle=(i/7)*Math.PI*2;let jr=0.7+Math.sin(i*7.3)*0.3;let px=Math.cos(angle)*a.r*jr,py=Math.sin(angle)*a.r*jr;i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);} ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();
   }
-
   for(let b of enemyBullets){ ctx.save();ctx.shadowColor=b.col;ctx.shadowBlur=10;ctx.fillStyle=b.col;ctx.globalAlpha=0.88;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.restore(); }
   for(let p of particles){ ctx.save();ctx.globalAlpha=p.life*0.9;ctx.shadowColor=p.col;ctx.shadowBlur=8;ctx.fillStyle=p.col;ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.life,0,Math.PI*2);ctx.fill();ctx.restore(); }
-
   for(let t of player.trail){ if(t.life<=0) continue; ctx.save();ctx.globalAlpha=t.life*0.3;let ship=SHIPS[save.selectedShip];ctx.fillStyle=ship?ship.color:'#2dffcf';ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=5;ctx.beginPath();ctx.arc(t.x,t.y,player.r*t.life*0.45,0,Math.PI*2);ctx.fill();ctx.restore(); }
-
   for(let p of powerups){
     ctx.save(); let pr2=0.8+0.2*Math.sin(p.pulse);
     ctx.shadowColor=p.color;ctx.shadowBlur=16*pr2;ctx.fillStyle=p.color;ctx.globalAlpha=0.9;ctx.beginPath();ctx.arc(p.x,p.y,p.r*pr2,0,Math.PI*2);ctx.fill();
     ctx.fillStyle='#fff';ctx.globalAlpha=0.8;ctx.beginPath();ctx.arc(p.x,p.y,p.r*0.45,0,Math.PI*2);ctx.fill();
     ctx.strokeStyle=p.color;ctx.lineWidth=1.5;ctx.globalAlpha=0.4;ctx.beginPath();ctx.arc(p.x,p.y,p.r*1.6*pr2,0,Math.PI*2);ctx.stroke();ctx.restore();
   }
-
   for(let b of bullets){
     ctx.save();ctx.shadowColor=b.color;ctx.shadowBlur=16;ctx.fillStyle=b.color;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
     if(b.missile){ctx.globalAlpha=0.3;ctx.beginPath();ctx.arc(b.x-(b.vx||0)*2,b.y-b.vy*1.5,b.r*0.5,0,Math.PI*2);ctx.fill();}ctx.restore();
   }
-
   if(laserActive){
     ctx.save();ctx.shadowColor='#2dffcf';ctx.shadowBlur=30;let flicker=0.7+0.3*Math.sin(Date.now()*0.05);
     ctx.strokeStyle='rgba(45,255,207,'+flicker+')';ctx.lineWidth=6*(W/680);ctx.beginPath();ctx.moveTo(player.x,player.y-player.r);ctx.lineTo(player.x,0);ctx.stroke();
     ctx.strokeStyle='rgba(255,255,255,0.6)';ctx.lineWidth=2*(W/680);ctx.beginPath();ctx.moveTo(player.x,player.y-player.r);ctx.lineTo(player.x,0);ctx.stroke();ctx.restore();
   }
-
   for(let e of enemies){
     if(e.dead) continue;
     ctx.save();
     ctx.shadowColor=e.color;ctx.shadowBlur=e.elite?28:18;ctx.fillStyle=e.color;ctx.globalAlpha=0.92;
-    // charger gets diamond shape
     if(e.type==='charger'){
       ctx.beginPath();ctx.moveTo(e.x,e.y-e.r*1.3);ctx.lineTo(e.x+e.r*1.1,e.y);ctx.lineTo(e.x,e.y+e.r*1.3);ctx.lineTo(e.x-e.r*1.1,e.y);ctx.closePath();ctx.fill();
       if(e.chargeActive){ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.globalAlpha=0.6;ctx.stroke();}
@@ -1286,7 +1198,6 @@ function draw(){
     if(e.maxHp>1){let bw=e.r*2.4;ctx.globalAlpha=0.6;ctx.fillStyle='rgba(0,0,0,0.7)';ctx.fillRect(e.x-bw/2,e.y+e.r+4,bw,3);ctx.fillStyle=e.color;ctx.fillRect(e.x-bw/2,e.y+e.r+4,bw*(e.hp/e.maxHp),3);}
     ctx.restore();
   }
-
   if(bossActive&&boss&&!boss.dead){
     let pulse=0.85+0.15*Math.sin(Date.now()*0.004);let phaseColors=['#ff2d78','#ff6bff','#ff9f1c'];let bc=phaseColors[boss.phase];
     ctx.save();ctx.shadowColor=bc;ctx.shadowBlur=40*pulse;
@@ -1299,9 +1210,7 @@ function draw(){
     ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.globalAlpha=0.5;ctx.beginPath();ctx.arc(weakAbsX,weakAbsY,boss.r*0.22,0,Math.PI*2);ctx.stroke();
     ctx.globalAlpha=0.8;ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(boss.x,boss.y,boss.r*0.1,0,Math.PI*2);ctx.fill();ctx.restore();
   }
-
   if(weapons.orbit){ for(let o of orbitShields){ if(!o.x) continue; ctx.save();ctx.shadowColor='#2dffcf';ctx.shadowBlur=14;ctx.fillStyle='#2dffcf';ctx.globalAlpha=0.8;ctx.beginPath();ctx.arc(o.x,o.y,player.r*0.52,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.globalAlpha=0.3;ctx.beginPath();ctx.arc(o.x,o.y,player.r*0.7,0,Math.PI*2);ctx.stroke();ctx.restore(); } }
-
   if(state===SC.PLAYING||lastStandActive){
     let flashOn=player.flash<=0||Math.floor(player.flash/6)%2===0;
     if(flashOn){
@@ -1325,7 +1234,6 @@ function draw(){
       ctx.beginPath();ctx.arc(targetX,targetY,5,0,Math.PI*2);ctx.stroke();ctx.restore();
     }
   }
-
   ctx.restore();
 }
 </script>
