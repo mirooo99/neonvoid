@@ -303,13 +303,16 @@ canvas.addEventListener('touchstart', e => { let r=canvas.getBoundingClientRect(
 
 document.getElementById('start-btn').addEventListener('click', startGame);
 
+let startingGame=false;
 function startGame() {
+  if(startingGame) return;
+  startingGame=true;
+  setTimeout(()=>{ startingGame=false; }, 600);
   overlay.classList.add('hidden');
   scorecard.classList.remove('show');
   state = SC.PLAYING;
   initGame();
-  lastTime = performance.now();
-  requestAnimationFrame(loop);
+  startLoop();
 }
 
 function initGame() {
@@ -548,15 +551,26 @@ function nearestEnemy() {
 function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
 
 let lastTime=0;
-function loop(ts){
-  if(state!==SC.PLAYING) return;
+let loopGen=0;
+
+function loop(ts, gen){
+  if(gen!==loopGen) return;
+  if(state!==SC.PLAYING){ lastTime=0; return; }
+  if(lastTime===0) lastTime=ts;
   let rawDt=Math.min((ts-lastTime)/16.667,3);
   lastTime=ts;
   let dt=rawDt*bulletTimeScale;
   if(bulletTimeTimer>0){ bulletTimeTimer-=rawDt; if(bulletTimeTimer<=0){ bulletTimeScale=1; } }
   update(dt,rawDt);
   draw();
-  requestAnimationFrame(loop);
+  requestAnimationFrame(ts2=>loop(ts2,gen));
+}
+
+function startLoop(){
+  loopGen++;
+  lastTime=0;
+  const gen=loopGen;
+  requestAnimationFrame(ts=>loop(ts,gen));
 }
 
 function update(dt,rawDt){
@@ -913,8 +927,7 @@ function showScorecard() {
       spawnZones();
       state=SC.PLAYING;
       spawnWave();
-      lastTime=performance.now();
-      requestAnimationFrame(loop);
+      startLoop();
     });
   });
 
