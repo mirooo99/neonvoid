@@ -57,7 +57,7 @@ body{display:flex;align-items:center;justify-content:center;font-family:'Share T
 #pu-notify-txt{font-family:'Orbitron',monospace;font-size:clamp(16px,3vw,24px);font-weight:900;letter-spacing:4px;}
 #pu-notify-sub{font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:4px;}
 
-#scorecard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,5,0.85);pointer-events:all;opacity:0;transition:opacity .5s;pointer-events:none;}
+#scorecard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,5,0.85);opacity:0;transition:opacity .5s;pointer-events:none;}
 #scorecard.show{opacity:1;pointer-events:all;}
 .sc-box{background:rgba(5,5,25,0.95);border:1px solid rgba(45,255,207,0.25);border-radius:8px;padding:36px 48px;min-width:340px;text-align:center;}
 .sc-title{font-family:'Orbitron',monospace;font-size:13px;letter-spacing:5px;color:rgba(45,255,207,0.5);margin-bottom:24px;}
@@ -921,13 +921,16 @@ function showScorecard() {
 
   document.querySelectorAll('.diff-card').forEach((el,i)=>{
     el.addEventListener('click',()=>{
+      document.querySelectorAll('.diff-card').forEach(c=>{ c.style.pointerEvents='none'; c.style.opacity='0.4'; });
       diffMod={bulletSpeed:1,enemyCount:1,bossHp:1,reward:''};
       opts[i].mod();
       scorecard.classList.remove('show');
-      spawnZones();
-      state=SC.PLAYING;
-      spawnWave();
-      startLoop();
+      setTimeout(()=>{
+        spawnZones();
+        state=SC.PLAYING;
+        spawnWave();
+        startLoop();
+      }, 520);
     });
   });
 
