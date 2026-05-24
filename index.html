@@ -181,6 +181,18 @@ html::-webkit-scrollbar-thumb{background:rgba(0,255,178,0.2);border-radius:2px;}
 #zone-txt{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);font-family:'Orbitron',monospace;font-size:10px;letter-spacing:3px;color:#fff544;pointer-events:none;opacity:0;transition:opacity .3s;}
 #zone-txt.show{opacity:1;}
 @keyframes splitFlash{0%{opacity:0.9;}100%{opacity:0;transform:scale(3);}}
+
+.icon-red {
+  color: #ff2d78;
+}
+
+.icon-yellow {
+  color: #ff9f1c;
+}
+
+.icon-cyan {
+  color: #2dffcf;
+}
 </style>
 </head>
 <body>
@@ -1066,11 +1078,32 @@ function showScorecard(){
   let waveBonus=Math.round(waveKills*5);
   score+=waveBonus; scoreValEl.textContent=score;
   if(waveNoHit) checkAch('nodamage');
-  let opts=[
-    {cls:'danger',icon:'!!',name:'BULLET STORM',desc:'Enemy fire rate +50%',reward:'SCORE x1.5 next wave',mod:()=>{diffMod.bulletSpeed=1.5;diffMod.reward='Score x1.5';}},
-    {cls:'warn',  icon:'+', name:'ELITE SURGE', desc:'More elite enemies',  reward:'Guaranteed power-up drop',mod:()=>{diffMod.enemyCount=1.3;diffMod.reward='Elite wave';}},
-    {cls:'cyan',  icon:'!', name:'BOSS RUSH',   desc:'Next boss has +50% HP',reward:'Unlock upgrade faster',mod:()=>{diffMod.bossHp=1.5;diffMod.reward='Fast upgrade';}},
-  ];
+  let opts = [
+  {
+    cls:'danger',
+    icon:'<span class="icon-red">!!</span>',
+    name:'BULLET STORM',
+    desc:'Enemy fire rate +50%',
+    reward:'SCORE x1.5 next wave',
+    mod:()=>{diffMod.bulletSpeed=1.5;diffMod.reward='Score x1.5';}
+  },
+  {
+    cls:'warn',
+    icon:'<span class="icon-yellow">+</span>',
+    name:'ELITE SURGE',
+    desc:'More elite enemies',
+    reward:'Guaranteed power-up drop',
+    mod:()=>{diffMod.enemyCount=1.3;diffMod.reward='Elite wave';}
+  },
+  {
+    cls:'cyan',
+    icon:'<span class="icon-cyan">!</span>',
+    name:'BOSS RUSH',
+    desc:'Next boss has +50% HP',
+    reward:'Unlock upgrade faster',
+    mod:()=>{diffMod.bossHp=1.5;diffMod.reward='Fast upgrade';}
+  },
+];
   document.getElementById('sc-content').innerHTML=`
     <div class="sc-row"><span class="sc-lbl">Kills this wave</span><span class="sc-val">${waveKills}</span></div>
     <div class="sc-row"><span class="sc-lbl">Accuracy</span><span class="sc-val">${acc}%</span></div>
