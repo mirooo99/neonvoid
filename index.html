@@ -519,7 +519,7 @@ function showMainMenu(){
       <button class="mode-tab" data-mode="endless">ENDLESS</button>
       <button class="mode-tab" data-mode="daily">DAILY</button>
     </div>
-    <div id="mode-desc" style="font-size:10px;color:rgba(255,255,255,0.22);letter-spacing:2px;margin-bottom:20px;text-align:center;">Clear 10 waves to win</div>
+    <div id="mode-desc" style="font-size:10px;color:rgba(255,255,255,0.22);letter-spacing:2px;margin-bottom:20px;text-align:center;">Clear 10 waves to win</div> <br>
 
     ${dailyDone?`<div class="daily-info"><div class="daily-info-title">TODAY'S CHALLENGE DONE</div><div class="daily-info-sub">Score: ${save.dailyScore.toLocaleString()}</div></div>`:''}
 
@@ -527,7 +527,7 @@ function showMainMenu(){
       <button class="btn primary" id="start-btn">LAUNCH</button>
     </div>
 
-    <div class="sec-hdr">HIGH SCORES</div>
+    <div class="sec-hdr">SCROLL TO SEE YOUR HIGH SCORES AND ACHIEVEMENTS</div>
     <div class="hs-row">
       <div class="hs-item">
         <div class="hs-label" style="color:rgba(45,255,207,0.5);">CLASSIC</div>
@@ -568,7 +568,7 @@ function showMainMenu(){
   });
 
   let selectedMode='classic';
-  const modeDescs={classic:'Clear 10 waves to win',endless:'Infinite waves — how far can you go?',daily:'Same challenge for everyone today'};
+  const modeDescs={classic:'Clear 10 waves to win',endless:'Infinite waves — how far can you go?',daily:'Same challenge for everyone today (Coming soon...)'};
   document.querySelectorAll('.mode-tab').forEach(tab=>{
     tab.addEventListener('click',()=>{
       document.querySelectorAll('.mode-tab').forEach(t=>t.classList.remove('active'));
